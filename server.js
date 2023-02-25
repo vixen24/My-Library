@@ -7,6 +7,7 @@ const path = require('path')
 const app = express()
 //const bodyParser = require('body-parser')
 
+
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
 const db = mongoose.connection
@@ -22,7 +23,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
-app.use(express.urlencoded({limit: '10mb', extended:false}))
+app.use(express.urlencoded({limit: '5mb', extended:false}))
 //app.use(bodyParser.urlencoded({limit: '10mb', extended:false}))
 
 app.use('/', indexRouter)

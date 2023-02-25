@@ -8,14 +8,14 @@
         <label>Published After</label>
         <input type="date" name="publishedAfter" value="<%=searchOptions.publishedAfter%>">
     </div>
-<div>
-    <label>Published Before</label>
-    <input type="date" name="publishedBefore" value="<%=searchOptions.publishedBefore%>">
-</div>
+    <div>
+        <label>Published Before</label>
+        <input type="date" name="publishedBefore" value="<%=searchOptions.publishedBefore%>">
+    </div>
 <button type="submit">Search</button>
 </form>
 <div>
     <% book.forEach(book => { %> 
-        <img height="150" width="100" src="<%= book.coverImagePath %>">
+        <img height="150" width="100" src="<%=book.coverImagePath %>">
     <% }) %>
 </div>
