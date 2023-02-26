@@ -4,7 +4,7 @@ const router = express.Router()
 const Book = require('../models/book')
 const Author = require('../models/author')
 
-const ImageMimeTypes = ['image/jpg', 'image/png', 'image/gif']
+const ImageMimeTypes = ['image/jpg', 'image/png', 'image/gif', 'image/jpeg']
 
 //All books route
 router.get('/', async (req,res) => {
@@ -20,7 +20,7 @@ router.get('/', async (req,res) => {
     }
     try {
         const book = await query.exec()
-        res.render('books/index', {
+                res.render('books/index', {
             book: book,
             searchOptions: req.query
         })
