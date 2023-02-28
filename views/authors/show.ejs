@@ -4,12 +4,10 @@
     <%- include('../partials/deleteForm', {url: `${author.id}`}) %>
 </div>
 <% if(booksByAuthor.length > 0) { %>
-    <h2 class="page-header">Books by Author</h2>
-        <% booksByAuthor.forEach(book => { %> 
-        <a href="/books/<%= book.id %>">
-            <img height="150" width="100" src="<%= book.coverImagePath %>">
-        </a>
-    <% }) %>
+        <h2 class="page-header">Books by Author</h2>
+        <%- include('../partials/bookGrid',{ 
+            books: booksByAuthor
+        }) %>
 <% } else { %>
-    <p>There are no books by <%= author.name %>. Click <a href = "/books/new">here</a> to add a new book.</p>
+    <p>There are no books by <%= author.name %>. Click <a class="btn-in-text" href = "/books/new">here</a> to add a new book.</p>
 <% } %>

@@ -26,6 +26,11 @@
     background-color: var(--color-btn-primary-background);
 }
 
+.btn-in-text {
+    color: var(--color-text-light);
+    cursor: 'pointer';
+}
+
 .btn-primary:hover {
     color: var(--color-btn-primary-text-dark);
     background-color: var(--color-btn-primary-background-dark);

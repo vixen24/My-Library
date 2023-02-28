@@ -36,7 +36,7 @@ router.post('/', async (req,res) => {
     } catch{
         res.render('authors/new', {
             author: author,
-            errorMessage: 'Error creating Author'
+            errorMessage: "Enter author's name below"
         })
     }
 })

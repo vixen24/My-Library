@@ -31,7 +31,7 @@ router.get('/', async (req,res) => {
 
 //New book route
 router.get('/new', async(req,res) => {
-    renderNewPage(res, new Book() )
+    renderNewPage(res, new Book())
 })
 
 //Create book route
@@ -44,9 +44,10 @@ router.post('/', async (req,res) => {
         author: req.body.author
     })
 
+    if(req.body.cover !== null && req.body.cover !== '') {
     saveCover(book, req.body.cover)
+    } 
 
- //  console.log(book)
     try{
         const newBook = await book.save()
         res.redirect(`books/${newBook.id}`)
@@ -119,8 +120,8 @@ router.delete('/:id', async (req, res)=>{
 
 function saveCover(book, coverEncoded){
     if(coverEncoded === null) res.redirect('/books')
-   console.log(coverEncoded)
-    //console.log(json.coverEncoded)
+   //console.log(coverEncoded)
+  
     const cover = JSON.parse(coverEncoded)
     if(cover !== null && ImageMimeTypes.includes(cover.type)) {
         book.coverImage = new Buffer.from(cover.data, 'base64')
@@ -128,17 +129,21 @@ function saveCover(book, coverEncoded){
     }
 }
 
-async function renderNewPage(res, book, hasError = false){
+async function renderNewPage(res, book, hasError){
     renderFormPage(res, book, 'new', hasError)
 }
 
-async function renderEditPage(res, book, hasError = false){
+async function renderEditPage(res, book, hasError){
     renderFormPage(res, book, 'edit', hasError)
 }
 
-async function renderFormPage(res, book, form, hasError = false){
+async function renderEditPage(res, book, hasError){
+    renderFormPage(res, book, 'edit', hasError)
+}
+
+async function renderFormPage(res, book, form, hasError){
     try{
-        const authors = await Author.find({})
+       const authors = await Author.find({})
         const params = {
             author: authors,
             book: book
@@ -147,7 +152,7 @@ async function renderFormPage(res, book, form, hasError = false){
             if(form === 'edit'){
                 params.errorMessage = 'Error updating Book'
             } else {
-                params.errorMessage = 'Error creating Book'
+                params.errorMessage = 'Fill the form below'
             }
         }
         res.render(`books/${form}`, params)
