@@ -4,3 +4,4 @@ This is a demo application, that allows a user to manage an online book library.
 2.  Edit an exisiting author
 3.  Add a new book
 4.  Edit an exisiting book
+5.  Add cover image to new book
