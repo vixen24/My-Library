@@ -34,4 +34,9 @@ The app allows users to manage an online book library and has the following feat
 3.  Add/Edit a book 
 5.  View library catalog
 
-The structure of the app is monolithic. EJS template and view engine is used for generating static web pages. 
+The structure of the app is monolithic. 
+
+The below packages were used.
+
+* EJS template - to generate templates
+* EJS view engine - to render web pages using EJS template files 
