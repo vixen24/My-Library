@@ -5,6 +5,7 @@
 
 Tech stack required to run the app.
 * NodeJS - runtime 
+* MongoDB - database
 
 It is assumed that you have these components setup already.
 
@@ -18,7 +19,11 @@ It is assumed that you have these components setup already.
    ```sh
    npm install
    ```
-3. Run the app
+3. Create a .env file in the root folder and assign database connection string
+   ```sh
+   DATABASE_URL=mongodb://localhost:27017
+   ```
+4. Run the app
    ```sh
    npm start
    ```
