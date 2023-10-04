@@ -1,4 +1,11 @@
 <!-- GETTING STARTED -->
+A library management system with the following features
+* Add authors
+* Add books
+* Search library based on book author
+* Search library based on book name
+* Search library based on both author and book name
+
 ## Getting Started
 
 ### Prerequisites
